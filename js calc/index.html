@@ -2,22 +2,36 @@
 <html>
 <head>
 <script>
+var info = [];
 function doOperation() {
     var a = parseInt(document.getElementById("a").value);
     var b = parseInt(document.getElementById("b").value);
     var op = document.getElementById("operation").value;
     var c = 0;
+    var textOp = "+";
     switch(op) {
-        case "1":c = a+b;break;
-        case "2":c = a-b;break;
-        case "3":c = a*b;break;
-        case "4":c = a/b;break;
+        case "1":c = a+b; textOp="+"; break;
+        case "2":c = a-b; textOp="-"; break;
+        case "3":c = a*b; textOp="*"; break;
+        case "4":c = a/b; textOp="/"; break;
         default:
           c = a+b;break;
    }
     
     document.getElementById("c").value = c;
+   
+    doLog("a["+a+"]"+textOp+"b["+b+"]="+c);
     
+}
+
+function doLog(text) {
+var index = info.length;
+info[index] = text;
+
+var buf = "";
+for(var i = 0;i<info.length;i++)
+buf+=info[i]+"<br>";
+document.getElementById("log").innerHTML = buf;
 }
 </script>
 <style>
@@ -49,6 +63,14 @@ label {
 color:orange;
 font-size:20pt;
 }
+
+#log {
+overflow-y:scroll;
+width:300px;
+height:200px;
+border:1px blue dotted;
+margin-top:20px;
+}
 </style>
 </head>
 
@@ -74,6 +96,8 @@ font-size:20pt;
 <input id="c" type="number" min="0" value="0">
 </form>
 <button type="button" onclick="doOperation()">Try it</button>
+<div id="log">
 
+</div>
 </body>
 </html> 
