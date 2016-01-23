@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function doOperation() {
+    var a = parseInt(document.getElementById("a").value);
+    var b = parseInt(document.getElementById("b").value);
+    var op = document.getElementById("operation").value;
+    var c = 0;
+    switch(op) {
+        case "1":c = a+b;break;
+        case "2":c = a-b;break;
+        case "3":c = a*b;break;
+        case "4":c = a/b;break;
+        default:
+          c = a+b;break;
+   }
+    
+    document.getElementById("c").value = c;
+    
+}
+</script>
+<style>
+input {
+padding:10px;
+margin:10px;
+}
+form {
+height:280px;
+width:300px;
+border:1px blue dashed;
+padding:20px;
+box-sizing:border-box;
+}
+button {
+position:relative;
+padding:20px;
+margin-top:20px;
+margin-left:100px;
+}
+
+select {
+padding:10px;
+font-size:20pt;
+color:lightblue;
+}
+
+label {
+color:orange;
+font-size:20pt;
+}
+</style>
+</head>
+
+<body>
+
+<h1>JavaScript in Head</h1>
+
+<p id="demo">A Paragraph.</p>
+<form>
+<label for="a">a:</label>
+<input id="a" type="number" min="0" value="0"><br>
+<label for="operation">operation:</label>
+<select id="operation">
+<option value="1">+</option>
+<option value="2">-</option>
+<option value="3">*</option>
+<option value="4">/</option>
+</select><br>
+<label for="b">b:</label>
+<input id="b" type="number" min="0" value="0"><br>
+<label for="c">c:</label>
+
+<input id="c" type="number" min="0" value="0">
+</form>
+<button type="button" onclick="doOperation()">Try it</button>
+
+</body>
+</html> 
